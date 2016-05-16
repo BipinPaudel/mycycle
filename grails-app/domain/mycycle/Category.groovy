@@ -4,6 +4,7 @@ class Category {
         int id
         int price
         String type
-    static constraints = {
-    }
+        static hasMany = [bicycles:Bicycle]
+
+
 }
