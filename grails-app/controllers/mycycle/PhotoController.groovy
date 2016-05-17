@@ -4,6 +4,6 @@ class PhotoController {
 
     static scaffold = true
     def index() {
-        render "hello photo"
+        render "hello photo  asad"
     }
 }
