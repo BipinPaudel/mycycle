@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MySQL - mycycle@localhost" uuid="8069598c-b0d5-4d96-a976-ba1d689ce71f">
-      <secret-storage>master_key</secret-storage>
+    <data-source name="MySQL - mycycle@localhost" uuid="194d3742-f8d5-4c24-899f-76be3140cf7b">
+      <secret-storage>memory</secret-storage>
       <user-name>root</user-name>
+      <schema-pattern>mycycle.*</schema-pattern>
+      <default-schemas>mycycle.*</default-schemas>
     </data-source>
     <data-source name="mycycle dev" uuid="93d49153-e200-4963-a7e4-c35fbaff544b">
       <user-name>root</user-name>
