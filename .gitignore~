@@ -4,7 +4,6 @@
 # suggested that you use the "grails integrate-with --git" command
 # to generate your .gitignore file.
 
-.idea/
 # web application files
 /web-app/WEB-INF/classes
 
@@ -30,7 +29,6 @@
 # older plugin install locations
 /plugins
 /web-app/plugins
-
 
 # "temporary" build files
 /target
