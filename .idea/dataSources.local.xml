@@ -5,5 +5,11 @@
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
     </data-source>
+    <data-source name="mycycle dev" uuid="93d49153-e200-4963-a7e4-c35fbaff544b">
+      <user-name>root</user-name>
+      <user-password>dfc7dfcbdfc3dfcedfcfdfc4</user-password>
+      <schema-pattern>mycycle.*</schema-pattern>
+      <default-schemas>mycycle.*</default-schemas>
+    </data-source>
   </component>
 </project>
