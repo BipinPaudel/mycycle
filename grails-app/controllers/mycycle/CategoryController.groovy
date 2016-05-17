@@ -10,6 +10,7 @@ class CategoryController {
         }
         else{
             render "Not success this is shit"
+            render "FromUmesh"
         }
     }
 }
