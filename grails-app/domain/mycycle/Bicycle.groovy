@@ -1,13 +1,12 @@
 package mycycle
 
 class Bicycle {
-    int categoryId
     String title
-    int quantity
+    Integer quantity
     Date date
-    int totalPrice
+    Integer totalPrice
     String description
-    int remaining
+    Integer remaining
 
     static belongsTo = [categories:Category]
 

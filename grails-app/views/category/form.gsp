@@ -7,7 +7,7 @@
 <body>
 <g:form controller="category" action="save">
     <label>Class: </label>
-    <g:textField name="class"/><br/>
+    <g:textField name="type"/><br/>
     <label>Price: </label>
     <g:textField name="price"/><br/>
     <g:actionSubmit value="Save"/>
