@@ -10,7 +10,7 @@ class CategoryController {
         }
         else{
             render "Not success this is shit"
-            render "from bipin"
+            render "FromUmesh"
         }
     }
 }
