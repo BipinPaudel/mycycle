@@ -9,7 +9,7 @@ class CategoryController {
             render "success"
         }
         else{
-            render "Not success"
+            render "Not success this is shit"
         }
     }
 }
