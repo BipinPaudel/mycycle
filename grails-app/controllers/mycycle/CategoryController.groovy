@@ -1,7 +1,10 @@
 package mycycle
 
 class CategoryController {
-    static scaffold = true
+    def index(){
+        def categories=Category.list()
+        [categories:categories]
+    }
     def form(){}
     def save(){
         def category=new Category(params)
@@ -9,8 +12,8 @@ class CategoryController {
             render "success"
         }
         else{
-            render "Not success this is shit"
-            render "FromUmesh"
+            render "Not success"
+
         }
     }
 }
