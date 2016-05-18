@@ -13,7 +13,6 @@ class CategoryController {
         }
         else{
             render "Not success"
-
         }
     }
 }

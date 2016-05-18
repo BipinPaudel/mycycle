@@ -26,10 +26,10 @@
     <g:textField name="password"/><br/>
 
     <label>Date: </label>
-    <g:datepicker name="date"/><br/>
+    <g:datePicker name="created"/><br/>
 
     <label>Role: </label>
-
+    <g:select  name="role" from="${role}"  />
 
     <g:actionSubmit value="Save"/>
 </g:form>

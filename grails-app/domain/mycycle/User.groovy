@@ -7,7 +7,7 @@ class User {
     String email
     String password
     Date created
-
+    Role role
     static constraints = {
     }
 }
