@@ -2,9 +2,7 @@ package mycycle
 
 class Role {
 
-    String title
-    Integer alias
-
+    String users
     static constraints = {
     }
 }
