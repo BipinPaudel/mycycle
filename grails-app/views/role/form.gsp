@@ -7,7 +7,7 @@
 <body>
 <g:form controller="role" action="save">
     <label>Role: </label>
-    <g:textField name="user"/><br/>
+    <g:textField name="users"/><br/>
 
     <g:actionSubmit value="Save"/>
 </g:form>
