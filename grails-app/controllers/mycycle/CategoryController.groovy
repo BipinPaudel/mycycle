@@ -7,8 +7,9 @@ class CategoryController {
     }
     def form(){}
     def save(){
+        println params
         def category=new Category(params)
-        if(category.save()){
+        if(category.save(flush: true)){
             render "success"
         }
         else{

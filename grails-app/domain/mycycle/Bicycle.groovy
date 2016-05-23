@@ -8,6 +8,6 @@ class Bicycle {
     String description
     Integer remaining
 
-    static belongsTo = [categories:Category]
+    static belongsTo = [category:Category]
 
 }
