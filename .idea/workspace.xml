@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3408039f-bcd9-4515-b032-5f17a7b8ca3f" name="Default" comment="Role commited">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/bicycle/form.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="3408039f-bcd9-4515-b032-5f17a7b8ca3f" name="Default" comment="dd">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.slcache/.index" afterPath="$PROJECT_DIR$/.slcache/.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/mycycle/BicycleController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/mycycle/BicycleController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/mycycle/CategoryController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/mycycle/CategoryController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/mycycle/Bicycle.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/mycycle/Bicycle.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mycycle.iml" afterPath="$PROJECT_DIR$/mycycle.iml" />
     </list>
     <ignored path="mycycle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.gsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="form.gsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/views/bicycle/form.gsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="82">
@@ -66,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bicycle.groovy" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Bicycle.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/domain/mycycle/Bicycle.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
@@ -802,7 +794,7 @@
       <workItem from="1463488292470" duration="560000" />
       <workItem from="1463507621848" duration="2149000" />
       <workItem from="1463555018464" duration="54000" />
-      <workItem from="1463996773936" duration="2914000" />
+      <workItem from="1463996773936" duration="3016000" />
     </task>
     <task id="LOCAL-00001" summary="category add added">
       <created>1463468650760</created>
@@ -846,11 +838,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463509469597</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Role commited">
+      <created>1463999724881</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1463999724881</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9519000" />
+    <option name="totallyTimeSpent" value="9621000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1386,14 +1385,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/bicycle/form.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/domain/mycycle/Bicycle.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1403,6 +1394,14 @@
       </provider>
       <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/bicycle/form.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="32" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
