@@ -1,10 +1,12 @@
 package mycycle
 
 class BicycleController {
-    static scaffold = true
+
     def index() {
-        def bicycles=Bicycle.list()
-        [bicycles:bicycles]
+        def list=Bicycle.list()
+        def bicycles = list.findAll{it.categoryId.equals(Long.parseLong(params.id))}
+
+        [bicycles: bicycles]
 
     }
     def form(){
