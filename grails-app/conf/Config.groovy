@@ -115,3 +115,63 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'mycycle.MyCycleRole'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'mycycle.MyCycleRoleMyCycleRole'
+grails.plugin.springsecurity.authority.className = 'mycycle.MyCycleRole'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                ['permitAll'],
+	'/index':           ['permitAll'],
+	'/index.gsp':       ['permitAll'],
+	'/assets/**':       ['permitAll'],
+	'/**/js/**':        ['permitAll'],
+	'/**/css/**':       ['permitAll'],
+	'/**/images/**':    ['permitAll'],
+	'/**/favicon.ico':  ['permitAll']
+]
+
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'mycycle.MyCycleRole'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'mycycle.MyCycleRoleMyCycleUser'
+grails.plugin.springsecurity.authority.className = 'mycycle.MyCycleUser'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                ['permitAll'],
+	'/index':           ['permitAll'],
+	'/index.gsp':       ['permitAll'],
+	'/assets/**':       ['permitAll'],
+	'/**/js/**':        ['permitAll'],
+	'/**/css/**':       ['permitAll'],
+	'/**/images/**':    ['permitAll'],
+	'/**/favicon.ico':  ['permitAll']
+]
+
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'mycycle.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'mycycle.UserRole'
+grails.plugin.springsecurity.authority.className = 'mycycle.Role'
+grails.plugin.springsecurity.logout.postOnly=false //allows logout to work
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                ['permitAll'],
+    '/index'             : ['permitAll'],
+    '/index.gsp'         : ['permitAll'],
+    '/assets/**'         : ['permitAll'],
+    '/**/js/**'          : ['permitAll'],
+    '/**/css/**'         : ['permitAll'],
+    '/**/images/**'      : ['permitAll'],
+    '/**/favicon.ico'    : ['permitAll'],
+    '/dbconsole/**'      : ['ROLE_ADMIN'],
+    '/plugins/**'        : ['ROLE_USER'],
+    '/user/**'           : ['ROLE_ADMIN'],
+    '/role/**'           : ['ROLE_ADMIN'],
+    '/securityInfo/**'   : ['ROLE_ADMIN'],
+    '/registationCode/**': ['ROLE_ADMIN'],
+
+
+]
+

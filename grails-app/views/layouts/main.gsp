@@ -18,8 +18,26 @@
 	</head>
 	<body>
 		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
-		<g:layoutBody/>
+	<nobr>
+		<div id='loginLinkContainer'>
+			<sec:ifLoggedIn>
+				Logged in as <sec:username /> (<g:link controller='logout'>Logout</g:link>)
+			</sec:ifLoggedIn>
+			<sec:ifNotLoggedIn>
+				<g:link controller='login'>Login</g:link>
+			</sec:ifNotLoggedIn>
+
+			<sec:ifSwitched>
+				<a href='${request.contextPath}/j_spring_security_exit_user'>
+					Resume as <sec:switchedUserOriginalUsername />
+				</a>
+			</sec:ifSwitched>
+		</div>
+	</nobr>
+
+			<g:layoutBody/>
+
 		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+		%{--<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>--}%
 	</body>
 </html>
