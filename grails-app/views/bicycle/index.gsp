@@ -8,14 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title></title>
+    <title> </title>
 </head>
 
 <body>
     <g:each in="${bicycles}" var="bicycle" status="i">
         <h3>Title: ${bicycle.title} <br></h3>
         <h3>Price: ${bicycle.totalPrice}</h3>
-
+        <g:link controller="book" action="book" params="${[id:bicycle.id]}">
+            <h4>Book</h4>
+        </g:link>
     </g:each>
 </body>
 </html>

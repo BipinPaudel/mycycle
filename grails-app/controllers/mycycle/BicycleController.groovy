@@ -1,12 +1,17 @@
 package mycycle
 
-class BicycleController {
+import grails.plugin.springsecurity.SpringSecurityService
 
+class BicycleController {
+def springSecurityService
     def index() {
         def list=Bicycle.list()
         def bicycles = list.findAll{it.categoryId.equals(Long.parseLong(params.id))}
-
+//        SpringSecurityService springSecurityService
+        def current=springSecurityService.currentUser.id
+        println("currentuser": current)
         [bicycles: bicycles]
+        //[currentUser:currentUser]
 
     }
     def form(){
