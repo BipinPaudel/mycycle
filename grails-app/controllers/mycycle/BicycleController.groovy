@@ -27,7 +27,7 @@ class BicycleController {
         println params
         def bicycle = new Bicycle(params)
         if (bicycle.save(flush: true)) {
-            render "success"
+            redirect(controller: 'bicycle',action:'form' )
         } else {
             render "Not success"
         }

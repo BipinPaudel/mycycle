@@ -8,14 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <meta name="layout" content="main"/>
     <title></title>
 </head>
 
 <body>
     <g:form controller="book" action="save" var="">
-        <g:datePicker name="startDate"/>
-        <g:datePicker name="endDate"/>
-        <g:field type="number" name="quantity"/>
+        Start Date:
+        <g:datePicker name="startDate"/><br>
+        End Date
+        <g:datePicker name="endDate"/> <br>
+        Quantity
+        <g:field type="number" name="quantity"/><br>
         <g:field type="hidden" name="bicycle" value="${bicycleId}"/>
         <g:actionSubmit value="Save"/>
 

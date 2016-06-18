@@ -16,7 +16,7 @@ class CategoryController {
         println params
         def category=new Category(params)
         if(category.save(flush: true)){
-            render "success"
+            redirect(controller: 'category',action: 'index')
         }
         else{
             render "Not success"

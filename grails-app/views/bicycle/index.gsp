@@ -20,5 +20,9 @@
             <h4>Book</h4>
         </g:link>
     </g:each>
+
+<g:link controller="bicycle" action="form">
+    Add new Bicycle
+</g:link>
 </body>
 </html>
