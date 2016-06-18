@@ -43,7 +43,8 @@ class BookController {
                 redirect(controller: 'category', view: 'index')
                 return
             } else {
-                render "Not done "
+
+                render "Not saved "
             }
         }
     }
