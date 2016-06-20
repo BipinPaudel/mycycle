@@ -16,6 +16,7 @@
     <g:each in="${bicycles}" var="bicycle" status="i">
         <h3>Title: ${bicycle.title} <br></h3>
         <h3>Price: ${bicycle.totalPrice}</h3>
+        <h3><a href="../edit/${bicycle.id}/">Edit</a></h3>
         <g:link controller="book" action="book" params="${[id:bicycle.id]}">
             <h4>Book</h4>
         </g:link>
