@@ -22,4 +22,24 @@ class CategoryController {
             render "Not success"
         }
     }
+
+    def edit() {
+        if(params.id == null) {
+            render "Please Send ID"
+        }
+        else {
+            def category = Category.get(params.id)
+            [category:category ]
+        }
+    }
+
+    def update() {
+        def category = Category.get(params.id)
+
+        if(bindData(category,params)) {
+            render "successfully edited"
+        } else {
+            render "Update failed!"
+        }
+    }
 }
