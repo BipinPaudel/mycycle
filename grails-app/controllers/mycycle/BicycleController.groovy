@@ -16,6 +16,18 @@ class BicycleController {
         }
     }
 
+    def edit(){
+        if(params.id==null){
+            render "Send Id"
+        }else{
+            def bicycles = Bicycle.get(params.id)
+            def category = Category.findAll()
+            //def bicycles = Bicycle.list().findAll { it.id.equals(Long.parseLong(params.id)) }
+            //render bicycles.title
+            [bicycle: bicycles,category: category]
+        }
+    }
+
     def form() {
         def category = Category.findAll()
         [category: category]
@@ -30,6 +42,20 @@ class BicycleController {
             redirect(controller: 'bicycle',action:'form' )
         } else {
             render "Not success"
+        }
+    }
+
+    def update(){
+        params.category = Category.findByType(params.category).id
+        params.remaining = params.quantity
+        def bicycle = Bicycle.get(params.id)
+
+        if(bindData(bicycle,params)){
+            println bicycle
+            println params
+            render "Success"
+        }else{
+            render "not success"
         }
     }
 }
