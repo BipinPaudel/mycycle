@@ -33,9 +33,9 @@
 				</a>
 			</sec:ifSwitched>
 			<div align="right">
-				<ul>
-					<li><g:link controller="category" action="index">Category</g:link> </li>
-					<li><g:link controller="book" action="index">My Cycle</g:link> </li>
+				<ul >
+					<li style="display: inline"><g:link controller="category" action="index">Category</g:link> </li>
+					<li style="display: inline"><g:link controller="book" action="index">My Cycle</g:link> </li>
 				</ul>
 			</div>
 
