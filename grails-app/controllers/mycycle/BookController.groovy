@@ -11,7 +11,6 @@ class BookController {
         def userId = springSecurityService.currentUser
         def roleId = UserRole.findByUser(userId).roleId
         def roleName = Role.findById(roleId).authority
-        println("rolename is: " + roleName)
         if (roleName == 'ROLE_ADMIN') {
             println("inside required")
             def bookList = Book.findAll()
@@ -41,9 +40,14 @@ class BookController {
             params.status = 0
             params.paid = 0
             params.user = springSecurityService.currentUser.id
+            def duration
+            use(groovy.time.TimeCategory) {
+                duration = (params.endDate - params.startDate).days + 1
+            }
+
             def bicycleReference = Bicycle.findById(params.bicycle).category
             def categoryReferenceForPrice = Category.findById(bicycleReference.id).price
-            params.totalAmount = bookedQuantity * categoryReferenceForPrice
+            params.totalAmount = bookedQuantity * categoryReferenceForPrice * duration
             def booking = new Book(params)
             if (booking.save()) {
                 def remaining = inStock - bookedQuantity

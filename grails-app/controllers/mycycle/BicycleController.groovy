@@ -50,6 +50,7 @@ class BicycleController {
         Bicycle.get(params.id).delete(flush: true)
         redirect(controller: 'category',action: 'index')
     }
+
     def update(){
         params.category = Category.findByType(params.category).id
         params.remaining = params.quantity
