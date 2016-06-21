@@ -1,5 +1,6 @@
 package mycycle
 
+import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.transaction.Transactional
 import org.apache.tools.ant.types.resources.selectors.InstanceOf
 
@@ -7,9 +8,19 @@ class BookController {
     def springSecurityService
 
     def index() {
-        def bookList = Book.list()
-        println(bookList.quantity)
-        [bookList:bookList]
+        def userId = springSecurityService.currentUser
+        def roleId = UserRole.findByUser(userId).roleId
+        def roleName = Role.findById(roleId).authority
+        println("rolename is: " + roleName)
+        if (roleName == 'ROLE_ADMIN') {
+            println("inside required")
+            def bookList = Book.findAll()
+            println(bookList.quantity)
+            [bookList: bookList]
+        } else {
+            def bookList = Book.findAllByUser(springSecurityService.currentUser)
+            [bookList: bookList]
+        }
     }
 
     def book() {
@@ -20,7 +31,6 @@ class BookController {
     def save() {
         def bookedQuantity = Integer.parseInt(params.quantity)
         def bicycleId = params.bicycle
-        //println("main  :" + Bicycle.findById(bicycleId).getRemaining())
         def inStock = Bicycle.findById(bicycleId).remaining
 
         if (inStock < bookedQuantity) {
@@ -28,21 +38,17 @@ class BookController {
             redirect(controller: 'category', view: 'index')
             return
         } else {
-
             params.status = 0
             params.paid = 0
             params.user = springSecurityService.currentUser.id
-//            println(params)
+            def bicycleReference = Bicycle.findById(params.bicycle).category
+            def categoryReferenceForPrice = Category.findById(bicycleReference.id).price
+            params.totalAmount = bookedQuantity * categoryReferenceForPrice
             def booking = new Book(params)
-
             if (booking.save()) {
-//                println("Everythings okay")
-//               println("id chai : " + bicycleId.getClass())
                 def remaining = inStock - bookedQuantity
-
-//                println("remaining is :"  + remaining + " " + " type is: " + remaining.getClass()  )
                 Bicycle.executeUpdate("update Bicycle set remaining = ? where id= ?",
-                        [remaining,Long.parseLong(bicycleId)] )
+                        [remaining, Long.parseLong(bicycleId)])
                 redirect(controller: 'category', view: 'index')
                 return
             } else {
@@ -51,34 +57,40 @@ class BookController {
         }
     }
 
-    def returnCycle(){
-        def bicycle_id=params.bicycleId
-        def quantity=Integer.parseInt(params.quantity)
-        def inStock= Bicycle.get(Long.parseLong(params.bicycleId)).remaining
-
-        println("instock: " + inStock.getClass() )
-        println("quantity : " + quantity.getClass())
-        def ss=inStock+quantity
-        println("sum is :" + ss )
+    def returnCycle() {
+        def quantity = Integer.parseInt(params.quantity)
+        def inStock = Bicycle.get(Long.parseLong(params.bicycleId)).remaining
         Bicycle.executeUpdate("update Bicycle set remaining=?+? where id=?",
-        [inStock,quantity,Long.parseLong(params.bicycleId)])
-//
-        Book.get(params.id).delete(flush: true)
-
-        redirect(controller: 'category' ,action: 'index')
-    }
-
-    def taken(){
-
-        if(params.bookId!=null){
-            println("hero is " + params.bookId.getClass())
-            Book.findById(params.bookId).status==0?
-            Book.executeUpdate("update Book set status=? where id=?",[1,Long.parseLong(params.bookId)]):
-                    Book.executeUpdate("update Book set status=? where id=?",[0,Long.parseLong(params.bookId)])
-            redirect(controller: 'book',action: 'index')
+                [inStock, quantity, Long.parseLong(params.bicycleId)])
+        params.user = params.user_id
+        params.bicycle = params.bicycleId
+        params.date = new Date()
+        params.price = params.totalAmount
+        def report = new ReturnReport(params)
+        if (report.save()) {
+            println("Report has been saved")
+        } else {
+            println("Report not saved")
         }
-
+        Book.get(params.id).delete(flush: true)
+        redirect(controller: 'category', action: 'index')
     }
 
+    def delete() {
+        def quantity = Integer.parseInt(params.quantity)
+        def inStock = Bicycle.get(Long.parseLong(params.bicycleId)).remaining
+        Bicycle.executeUpdate("update Bicycle set remaining=?+? where id=?",
+                [inStock, quantity, Long.parseLong(params.bicycleId)])
+        Book.get(params.id).delete(flush: true)
+        redirect(controller: 'book', action: 'index')
+    }
 
+    def taken() {
+        if (params.bookId != null) {
+            Book.findById(params.bookId).status == 0 ?
+                    Book.executeUpdate("update Book set status=? where id=?", [1, Long.parseLong(params.bookId)]) :
+                    Book.executeUpdate("update Book set status=? where id=?", [0, Long.parseLong(params.bookId)])
+            redirect(controller: 'book', action: 'index')
+        }
+    }
 }

@@ -19,16 +19,25 @@
             <td>
                 Price: ${category.price}
             </td>
+                <td>
+                    <sec:ifAllGranted roles="ROLE_ADMIN">
+                        <g:link controller="category" action="delete" params="${[id:category.id]}">
+                            Delete
+                        </g:link>
+                    </sec:ifAllGranted>
+                </td>
             </tr>
         </g:each>
 
 
 </table>
 
+<sec:ifAllGranted roles="ROLE_ADMIN">
+    <g:link controller="category" action="form">
+        Add new Category
+    </g:link>
+</sec:ifAllGranted>
 
- <g:link controller="category" action="form">
-     Add new Category
- </g:link>
 </body>
 
 </html>

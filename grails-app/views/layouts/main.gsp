@@ -32,6 +32,13 @@
 					Resume as <sec:switchedUserOriginalUsername />
 				</a>
 			</sec:ifSwitched>
+			<div align="right">
+				<ul>
+					<li><g:link controller="category" action="index">Category</g:link> </li>
+					<li><g:link controller="book" action="index">My Cycle</g:link> </li>
+				</ul>
+			</div>
+
 		</div>
 	</nobr>
 

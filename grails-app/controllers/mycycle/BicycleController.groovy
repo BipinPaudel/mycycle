@@ -1,9 +1,11 @@
 package mycycle
 
 import grails.plugin.springsecurity.SpringSecurityService
+import grails.plugin.springsecurity.annotation.Secured
 
 class BicycleController {
 
+    @Secured(['ROLE_ADMIN','ROLE_USER'])
     def index() {
         if (params.id==null) {
             redirect(controller: 'category', view: 'index')
@@ -44,7 +46,10 @@ class BicycleController {
             render "Not success"
         }
     }
-
+    def delete(){
+        Bicycle.get(params.id).delete(flush: true)
+        redirect(controller: 'category',action: 'index')
+    }
     def update(){
         params.category = Category.findByType(params.category).id
         params.remaining = params.quantity

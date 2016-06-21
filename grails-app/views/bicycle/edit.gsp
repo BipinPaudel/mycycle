@@ -1,4 +1,10 @@
-
+<%@ page contentType="text/html;charset=UTF-8" %>
+<html>
+<head>
+    <meta name="layout" content="main"/>
+    <title> </title>
+</head>
+<body>
 <g:form controller="bicycle" action="update" id="${bicycle.id}">
     <label>Category: </label>
     <g:select from="${category.type}" name="category"/><br/>
@@ -14,3 +20,5 @@
     <g:textField name="description" value="${bicycle.description}"/><br/>
     <g:actionSubmit value="Update"/>
 </g:form>
+</body>
+</html>

@@ -15,7 +15,6 @@
 
 <body>
 
-${bookList.size()}
 <table style="width: 100%">
 
     <tr>
@@ -26,6 +25,7 @@ ${bookList.size()}
         <th>End Date</th>
         <th> Paid </th>
         <th>Status </th>
+        <th>Payable Amount</th>
 
     </tr>
     <g:each in="${bookList}" var="bookingList" status="i">
@@ -65,14 +65,29 @@ ${bookList.size()}
 
             </td>
             <td>
-                <g:link controller="book" action="returnCycle" params=
-                "${[bicycleId:bookingList.bicycle.id,quantity:bookingList.quantity,id:bookingList.id]}">
-                    Return
-                </g:link>
+                ${bookingList.totalAmount}
             </td>
             <td>
+                <sec:ifAllGranted roles="ROLE_ADMIN">
+                <g:link controller="book" action="returnCycle" params=
+                "${[bicycleId:bookingList.bicycle.id,totalAmount:bookingList.totalAmount,
+                    id:bookingList.id,user_id:bookingList.user.id,
+                quantity: bookingList.quantity]}">
+                    Return
+                </g:link>
+                </sec:ifAllGranted>
+            </td>
+            <td>
+                <sec:ifAllGranted roles="ROLE_ADMIN">
                 <g:link controller="book" action="taken" params="${[bookId:bookingList.id]}">
-                    Taken
+                    Status
+                </g:link>
+                </sec:ifAllGranted>
+            </td>
+            <td>
+                <g:link controller="book" action="delete" params=
+                "${[bicycleId:bookingList.bicycle.id,quantity:bookingList.quantity,id:bookingList.id]}">
+                    Delete
                 </g:link>
             </td>
         </tr>
